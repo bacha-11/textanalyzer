@@ -2,7 +2,8 @@
 
 {% block content %}
 
-<h1 class="mt-2">Length Finder</h1>
+<div class="container p-2 mt-4">
+<h1 >Length Finder</h1>
 
 <form action="" method="POST">
    
@@ -25,6 +26,8 @@
    Your text Length is: <b class="text-light">{{ res|length }}</b> 
    {% endif %}
 </p>
+
+</div>
 {% endif %}
 
 {% endblock %}

@@ -20,3 +20,17 @@ def find_length():
     return render_template('string.html')
 
 
+@app.route('/word_replace', methods=['GET', 'POST'])
+def word_replace():
+    if request.method == 'POST':
+        all_string = request.form['string']
+        old_word = request.form['old_word']
+        new_word = request.form['new_word']
+        return render_template('replace.html', title='Replace Word', all_string=all_string, old_word=old_word, new_word=new_word)
+
+    return render_template('replace.html', title='Replace Word')
+
+
+
+
+
