@@ -1,7 +1,19 @@
 {% extends 'base.html' %}
 
+{% block css %}
+
+
+
+{% endblock %}
+
+
 
 {% block content %}
-
+<section id="home_page" class="m-2 p-2">
+    <h1>Welcome To Text Analyzer</h1>
+    <a href="{{ url_for('find_length') }}">
+        <button type="button" class="btn btn-success"> Find length </button>
+    </a>
+</section>
 
 {% endblock %}

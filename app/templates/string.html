@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="mt-2">Length Finder</h1>
+
+<form action="" method="POST">
+   
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Enter Text</label>
+        <textarea class="form-control" name="string" id="exampleFormControlTextarea1" placeholder="Enter your text here " rows="3" required>{{ res }}</textarea>
+      </div>
+    <button type="submit" class="btn btn-primary">Find length</button>
+
+</form>
+
+
+
+
+{% if res %}
+<p class="text-info bg-dark p-2 mt-2">
+    {% if res|length < 70 %}
+   Your text ( {{ res.title() }} ) Length is: <b class="text-light">{{ res|length }}</b> 
+   {% else %} 
+   Your text Length is: <b class="text-light">{{ res|length }}</b> 
+   {% endif %}
+</p>
+{% endif %}
+
+{% endblock %}
