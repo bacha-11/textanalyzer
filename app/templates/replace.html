@@ -8,15 +8,15 @@
     <form action="" method="POST">
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Enter Text:</label>
-            <textarea class="form-control" name="string" id="exampleFormControlTextarea1" rows="3" placeholder="Enter your text here"></textarea>
+            <textarea class="form-control" name="string" id="exampleFormControlTextarea1" rows="3" placeholder="Enter your text here" required></textarea>
           </div>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Enter Old Word:</label>
-            <input type="text" name="old_word" class="form-control" id="exampleFormControlInput1" placeholder="Enter old word">
+            <input type="text" name="old_word" class="form-control" id="exampleFormControlInput1" placeholder="Enter old word" required>
           </div>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Enter New Word:</label>
-            <input type="text" name="new_word" class="form-control" id="exampleFormControlInput1" placeholder="Enter new word">
+            <input type="text" name="new_word" class="form-control" id="exampleFormControlInput1" placeholder="Enter new word" required>
           </div>
           <button type="submit" class="btn btn-primary">Replace</button>
     </form>
@@ -25,11 +25,10 @@
 
 {% if all_string %}
     {% if old_word in all_string %}
-        <p> {{ all_string|replace(old_word, new_word) }} </p>
+        <p class="text-info bg-dark p-2 mt-2"> {{ all_string|replace(old_word, new_word) }} </p>
     {% else %}
-        <p>The word you enter is not find</p>
+        <p class="text-info bg-dark p-2 mt-2">The word <span style="color: red;"> {{ old_word }} </span> is not find<span style="color: yellow;">!</span></p>
     {% endif %}
-
 {% endif %}
 
 </div>

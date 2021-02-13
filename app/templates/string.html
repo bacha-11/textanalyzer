@@ -3,31 +3,62 @@
 {% block content %}
 
 <div class="container p-2 mt-4">
-<h1 >Length Finder</h1>
 
-<form action="" method="POST">
-   
-    <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Enter Text</label>
-        <textarea class="form-control" name="string" id="exampleFormControlTextarea1" placeholder="Enter your text here " rows="3" required>{{ res }}</textarea>
-      </div>
-    <button type="submit" class="btn btn-primary">Find length</button>
+  <h1 >Text Analyzer</h1>
+  <form action="" method="POST">
+    
+      <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Enter Text</label>
+          <textarea class="form-control" name="string" id="exampleFormControlTextarea1" placeholder="Enter your text here " rows="3" required>{% if res %}{{ res }}{% elif cap_str %}{{ cap_str }}{% elif text_upper %}{{ text_upper }}{% elif text_lower %}{{ text_lower }}{% elif print_able %}{{ print }}{% endif %}</textarea>
+        </div>
+      <button type="submit" class="btn btn-primary" name="find_length" value="find_length">Find length</button>
+      
+      <button type="submit" class="btn btn-primary" name="capitalize" value="capitalize">Capitalize</button>
 
-</form>
+      <button type="submit" class="btn btn-primary" name="upper" value="upper">Upper</button>
+
+      <button type="submit" class="btn btn-primary" name="lower" value="lower">Lower</button>
+
+      <button type="submit" class="btn btn-primary" name="print" value="print">Print Able</button>
+      
+  </form>
+
+  
 
 
 
 
+<hr>
 {% if res %}
-<p class="text-info bg-dark p-2 mt-2">
-    {% if res|length < 70 %}
-   Your text ( {{ res.title() }} ) Length is: <b class="text-light">{{ res|length }}</b> 
-   {% else %} 
-   Your text Length is: <b class="text-light">{{ res|length }}</b> 
-   {% endif %}
-</p>
+
+  <p class="text-info bg-dark p-2 mt-2">
+      {% if res|length < 70 %}
+    Your text ( {{ res.title() }} ) Length is: <b class="text-light">{{ res|length }}</b> 
+    {% else %} 
+    Your text Length is: <b class="text-light">{{ res|length }}</b> 
+    {% endif %}
+  </p>
+{% endif %}
+
+
+{% if cap_str %}
+  <p class="text-info bg-dark p-2 mt-2"> {{ cap_str.capitalize() }} </p>
+{% elif text_upper %}
+  <p class="text-info bg-dark p-2 mt-2"> {{ text_upper }} </p>
+{% elif text_lower %}
+  <p class="text-info bg-dark p-2 mt-2"> {{ text_lower }} </p>
+{% elif print_able %}
+  {% if print_able == True %}
+    <p class="text-info bg-dark p-2 mt-2"> Yes the overall text is printed format! </p>
+  {% else %}
+    <p class="text-info bg-dark p-2 mt-2"> No your text can't be printed format! </p>
+  {% endif %}
+
+{% endif %}
+
+<hr>
+
 
 </div>
-{% endif %}
 
 {% endblock %}
